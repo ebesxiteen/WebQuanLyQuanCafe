@@ -97,19 +97,19 @@ class ProductController {
         $this->conn->begin_transaction();
         try {
             // Xóa đánh giá sản phẩm trong bảng productreviews
-            $stmt = $this->conn->prepare("DELETE FROM productreviews WHERE PRODUCTID = ?");
+            $stmt = $this->conn->prepare("DELETE FROM PRODUCTREVIEWS WHERE PRODUCTID = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $stmt->close();
     
             // Xóa sản phẩm khỏi giỏ hàng trong bảng cartdetails
-            $stmt = $this->conn->prepare("DELETE FROM cartdetails WHERE PRODUCTID = ?");
+            $stmt = $this->conn->prepare("DELETE FROM CARTDETAILS WHERE PRODUCTID = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $stmt->close();
     
             // Xóa sản phẩm khỏi đơn hàng trong bảng orderdetails
-            $stmt = $this->conn->prepare("DELETE FROM orderdetails WHERE PRODUCTID = ?");
+            $stmt = $this->conn->prepare("DELETE FROM ORDERDETAILS WHERE PRODUCTID = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $stmt->close();

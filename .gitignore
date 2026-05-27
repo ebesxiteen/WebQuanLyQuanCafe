@@ -1,0 +1,11 @@
+.env
+.DS_Store
+*.log
+
+vendor/
+node_modules/
+
+.idea/
+.vscode/
+
+src/views/Admin/public/imgages/

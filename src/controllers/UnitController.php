@@ -74,7 +74,7 @@ class UnitController {
     
         try {
             // Cập nhật các bảng liên quan, đặt UNITID = NULL
-            $tablesToUpdate = ['products', 'recipedetails', 'ingredients', 'importdetails'];
+            $tablesToUpdate = ['PRODUCTS', 'RECIPEDETAILS', 'INGREDIENTS', 'IMPORTDETAILS'];
             foreach ($tablesToUpdate as $table) {
                 $sql = "UPDATE $table SET UNITID = NULL WHERE UNITID = ?";
                 $stmt = $this->connection->prepare($sql);
@@ -83,7 +83,7 @@ class UnitController {
             }
     
             // Xóa khỏi bảng UNITS
-            $deleteSql = "DELETE FROM units WHERE ID = ?";
+            $deleteSql = "DELETE FROM UNITS WHERE ID = ?";
             $deleteStmt = $this->connection->prepare($deleteSql);
             $deleteStmt->bind_param("i", $id);
             $deleteStmt->execute();

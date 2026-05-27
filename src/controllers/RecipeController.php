@@ -50,19 +50,19 @@ class RecipeController {
     
         try {
             // 1. Xóa chi tiết công thức
-            $sql1 = "DELETE FROM recipedetails WHERE RECIPEID = ?";
+            $sql1 = "DELETE FROM RECIPEDETAILS WHERE RECIPEID = ?";
             $stmt1 = $this->conn->prepare($sql1);
             $stmt1->bind_param("i", $id);
             $stmt1->execute();
     
             // 2. Xóa sản phẩm liên quan
-            $sql2 = "DELETE FROM products WHERE RECIPEID = ?";
+            $sql2 = "DELETE FROM PRODUCTS WHERE RECIPEID = ?";
             $stmt2 = $this->conn->prepare($sql2);
             $stmt2->bind_param("i", $id);
             $stmt2->execute();
     
             // 3. Xóa công thức chính
-            $sql3 = "DELETE FROM recipes WHERE ID = ?";
+            $sql3 = "DELETE FROM RECIPES WHERE ID = ?";
             $stmt3 = $this->conn->prepare($sql3);
             $stmt3->bind_param("i", $id);
             $stmt3->execute();

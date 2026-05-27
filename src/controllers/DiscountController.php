@@ -111,7 +111,7 @@ class DiscountController {
     
         try {
             // Xóa các record trong bảng orders có DISCOUNTID = ?
-            $sqlOrders = "update orders set DISCOUNTID = null where DISCOUNTID = ?";
+            $sqlOrders = "UPDATE ORDERS SET DISCOUNTID = NULL WHERE DISCOUNTID = ?";
             $stmtOrders = $this->connection->prepare($sqlOrders);
             $stmtOrders->bind_param("i", $id);
             if (!$stmtOrders->execute()) {
@@ -121,7 +121,7 @@ class DiscountController {
             $stmtOrders->close();
     
             // Xóa discount trong bảng discounts có ID = ?
-            $sqlDiscounts = "DELETE FROM discounts WHERE ID = ?";
+            $sqlDiscounts = "DELETE FROM DISCOUNTS WHERE ID = ?";
             $stmtDiscounts = $this->connection->prepare($sqlDiscounts);
             $stmtDiscounts->bind_param("i", $id);
             if (!$stmtDiscounts->execute()) {
